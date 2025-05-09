@@ -8,38 +8,18 @@ class my_array {
 	my_array(unsigned int size);
 	~my_array();
 	void print();
-
 	int get(int index);
 	void set(int index, int value);
-	size_t size();
 	size_t capacity();
 
   private:
-	size_t _size;
 	size_t _capacity;
-
 	void *base_address;
 };
-
-int main() {
-	my_array declared = my_array(10);
-
-	declared.set(0, 3);
-	declared.set(4, 17);
-	declared.set(9, 2);
-
-    std::cout << "Array declared with capacity " << declared.capacity() << " and current length " << declared.size()
-	          << "\n";
-
-	declared.print();
-
-	return 0;
-}
 
 my_array::my_array(unsigned int __capacity) {
 
 	_capacity = __capacity;
-	_size = 0;
 
 	base_address = std::malloc(_capacity * sizeof(int));
 }
@@ -65,7 +45,6 @@ void my_array::set(int index, int value) {
 	int *target = reinterpret_cast<int *>(addr + index * sizeof(int));
 
 	*target = value;
-    _size++;
 }
 
 void my_array::print() {
@@ -77,5 +56,19 @@ void my_array::print() {
 	}
 }
 
-size_t my_array::size() { return _size; }
 size_t my_array::capacity() { return _capacity; }
+
+int main() {
+	my_array declared = my_array(80);
+
+	declared.set(0, 3);
+	declared.set(4, 17);
+	declared.set(9, 2);
+
+    std::cout << "Array declared with capacity " << declared.capacity() << "\n";
+
+	declared.print();
+
+	return 0;
+}
+

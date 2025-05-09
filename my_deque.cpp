@@ -31,7 +31,7 @@ template <typename T> class my_deque {
 template <typename T> void my_deque<T>::push_front(T data) {
 	node<T> *old_root = root;
 	root = new node<T>(nullptr, old_root, data);
-	if (_size == 0) { // handle empty deque
+	if (_size == 0) {
 		end = root;
 	} else {
 		old_root->previous = root;
@@ -41,7 +41,7 @@ template <typename T> void my_deque<T>::push_front(T data) {
 template <typename T> void my_deque<T>::push_back(T data) {
 	node<T> *old_end = end;
 	end = new node<T>(old_end, nullptr, data);
-	if (_size == 0) { // handle empty deque
+	if (_size == 0) {
 		root = end;
 	} else {
 		old_end->next = end;
@@ -49,26 +49,26 @@ template <typename T> void my_deque<T>::push_back(T data) {
 	_size++;
 };
 template <typename T> void my_deque<T>::pop_front() {
-	if (_size > 0) { // check if the deque is empty
+	if (_size > 0) {
 		node<T> *first = root;
 		root = root->next;
-		if (root != nullptr) { // check if new root is null
+		if (root != nullptr) {
 			root->previous = nullptr;
 		} else {
-			end = nullptr; // if new root is null, end should also be null
+			end = nullptr;
 		}
 		_size--;
 		delete first;
 	}
 };
 template <typename T> void my_deque<T>::pop_back() {
-	if (_size > 0) { // check if the deque is empty
+	if (_size > 0) {
 		node<T> *last = end;
 		end = end->previous;
-		if (end != nullptr) { // check if new end is null
+		if (end != nullptr){ 
 			end->next = nullptr;
 		} else {
-			root = nullptr; // if new end is null, root should also be null
+			root = nullptr;
 		}
 		_size--;
 		delete last;

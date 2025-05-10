@@ -54,25 +54,26 @@ void my_vector::set(int index, int value) {
 void my_vector::push_back(int value) {
 
 	if (_size == _capacity) {
-        void* new_base = std::malloc((_capacity + 10) * sizeof(int));
-        if (!new_base) throw std::bad_alloc();
+		void *new_base = std::malloc((_capacity + 10) * sizeof(int));
+		if (!new_base)
+			throw std::bad_alloc();
 
-        std::uintptr_t old_addr = reinterpret_cast<std::uintptr_t>(base_address);
-        std::uintptr_t new_addr = reinterpret_cast<std::uintptr_t>(new_base);
+		std::uintptr_t old_addr = reinterpret_cast<std::uintptr_t>(base_address);
+		std::uintptr_t new_addr = reinterpret_cast<std::uintptr_t>(new_base);
 
-        for (std::size_t i = 0; i < _size; ++i) {
-            int* old_elem = reinterpret_cast<int*>(old_addr + i * sizeof(int));
-            int* new_elem = reinterpret_cast<int*>(new_addr + i * sizeof(int));
-            *new_elem = *old_elem;
-        }
+		for (std::size_t i = 0; i < _size; ++i) {
+			int *old_elem = reinterpret_cast<int *>(old_addr + i * sizeof(int));
+			int *new_elem = reinterpret_cast<int *>(new_addr + i * sizeof(int));
+			*new_elem = *old_elem;
+		}
 
-        std::free(base_address);
-        base_address = new_base;
-        _capacity = _capacity + 10;
+		std::free(base_address);
+		base_address = new_base;
+		_capacity = _capacity + 10;
 	}
 
-    this->set(_size, value);
-    _size++;
+	this->set(_size, value);
+	_size++;
 }
 
 void my_vector::print() {
@@ -93,8 +94,8 @@ int main() {
 	declared.push_back(4);
 	declared.push_back(1298);
 	declared.push_back(8);
-    declared.push_back(19);
-    declared.set(2, 10);
+	declared.push_back(19);
+	declared.set(2, 10);
 
 	std::cout << "Vector declared with capacity " << declared.capacity() << " and current length " << declared.size()
 	          << "\n";

@@ -8,4 +8,8 @@ Currently, this includes:
 
 - Array using malloc
 - Vector (dynamic array)
-- Double Queue (using a linked list)
+- Doubly linked list
+- Double-ended queue (implemented with a dll)
+- Binary Tree
+- Set (using a red-black tree)
+

@@ -10,6 +10,6 @@ Currently, this includes:
 - Vector (dynamic array)
 - Doubly linked list
 - Double-ended queue (implemented with a dll)
-- Binary Tree
-- Set (using a red-black tree)
+- Binary Search Tree
+- Set (using a Red-Black tree)
 

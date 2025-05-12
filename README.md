@@ -11,5 +11,6 @@ Currently, this includes:
 - Doubly linked list
 - Double-ended queue (implemented with a dll)
 - Binary Search Tree
-- Set (using a Red-Black tree)
+- Set (using a Red-Black Tree)
+- Unordered map (hash map)
 

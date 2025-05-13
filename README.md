@@ -9,7 +9,7 @@ Currently, this includes:
 - Array using malloc
 - Vector (dynamic array)
 - Doubly linked list
-- Double-ended queue (implemented with a dll)
+- Double-ended queue (implemented with a doubly-linked-list)
 - Binary Search Tree
 - Set (using a Red-Black Tree)
 - Unordered map (hash map)
